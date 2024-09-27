@@ -87,6 +87,7 @@ def do_dipole_gradient( atom_labels, R, el_structure_method, is_diatomic=False )
             E_GRAD[at,xyz]       = (E_plus - E_minus) / 2 / dR
             DIP_GRAD[at,xyz]     = (MU_plus - MU_minus) / 2 / dR
     
+    ###### FOR DEBUGGING ######
     # E0, DIP0, GRAD0 = kernel( atom_labels, R, el_structure_method )
     # print("Energy Gradients:")
     # print( "Exact:\n", GRAD0 )
@@ -94,6 +95,7 @@ def do_dipole_gradient( atom_labels, R, el_structure_method, is_diatomic=False )
 
     # print("Dipole Gradients:")
     # print( DIP_GRAD )
+    ###### FOR DEBUGGING ######
 
     print( "DIP GRAD Time: %1.3f s" % ( time() - T0 ) )
     return DIP_GRAD
@@ -117,13 +119,15 @@ def do_dipole_gradient_diatomic_z( atom_labels, R, el_structure_method ):
     E_GRAD[1,-1]       = -E_GRAD[0,-1]
     DIP_GRAD[1,-1]     = -DIP_GRAD[0,-1]
 
-    # E0, DIP0, GRAD0 = kernel( atom_labels, atom_coords )
+    ###### FOR DEBUGGING ######
+    # E0, DIP0, GRAD0 = kernel( atom_labels, R, el_structure_method )
     # print("Energy Gradients:")
     # print( "Exact:\n", GRAD0 )
     # print( "Approx:\n", E_GRAD )
 
     # print("Dipole Gradients:")
     # print( DIP_GRAD )
+    ###### FOR DEBUGGING ######
 
     print( "DIP GRAD Time: %1.3f s" % ( time() - T0 ) )
 

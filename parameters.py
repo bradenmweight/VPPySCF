@@ -3,8 +3,8 @@ import subprocess as sp
 
 class Parameters():
     def __init__(self):
-        self.NSTEPS = 10000 # Steps for nuclear propagation
-        self.dtI_fs = 0.1 # fs
+        self.NSTEPS = 500 # Number of steps for nuclear propagation
+        self.dtI_fs = 0.25 # fs
 
         self.el_structure_method = "HF" # "HF", "LDA", "PBE", "CCSD"
 
@@ -40,7 +40,7 @@ class Parameters():
 
 
         if ( self.do_cavity == True ):
-            self.E_t     = np.zeros( (self.NSTEPS,5) ) # T_N, V_NUC, T_PH, V_PH, V_NUC-PH # TODO -- Add DSE
+            self.E_t     = np.zeros( (self.NSTEPS,6) ) # T_N, V_NUC, T_PH, V_PH, V_NUC-PH # TODO -- Add DSE
             self.qc_t    = np.zeros( (self.NSTEPS) )
             self.pc_t    = np.zeros( (self.NSTEPS) )
             self.qc_t[0] = self.qc0
